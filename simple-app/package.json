@@ -1,0 +1,13 @@
+{
+  "name": "simple-node-app",
+  "version": "1.0.0",
+  "description": "Demo web app running on Amazon ECS pulling images from ECR",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "ak",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
