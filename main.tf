@@ -27,11 +27,6 @@ locals {
 # Service
 ################################################################################
 
-data "aws_ecr_image" "service_image" {
-  repository_name = "${local.ecr_repository_name}"
-  image_tag = "${local.ecr_image_tag}"
-}
-
 module "ecs" {
   source = "terraform-aws-modules/ecs/aws"
 
@@ -69,7 +64,7 @@ module "ecs" {
           cpu       = 256
           memory    = 512
           essential = true
-          image     = "${local.ecr_repository_url}/${local.ecr_repository_name}:${local.ecr_image_tag}@${data.aws_ecr_image.service_image.image_digest}"
+          image     = "${local.ecr_repository_url}/${local.ecr_repository_name}:${local.ecr_image_tag}"
           
           port_mappings = [
             {
